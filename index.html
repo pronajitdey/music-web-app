@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphism Music App</title>
+    <!-- flaticon cdn -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <button class="hdbtn search">
+                <i class="fi fi-sr-search"></i>
+            </button>
+            <h3 class="play-now">Playing now</h3>
+            <button class="hdbtn list">
+                <i class="fi fi-sr-list"></i>
+            </button>
+        </header>
+        
+        <div class="player">
+            <div class="img-area">
+                <img src="img/img1.jpg" alt="image">
+            </div>
+
+            <div class="song-details">
+                <h1 class="name">Rihaa</h1>
+                <h3 class="artist">Arijit Singh</h3>
+            </div>
+
+            <div class="timeline">
+                <div class="song-time">
+                    <span class="current-time">0:00</span>
+                    <span class="duration">3:35</span>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-bar">
+                        <audio id="main-song" src="songs/song-1.mp3"></audio>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btnC prev">
+                    <i class="fi fi-sr-rewind"></i>
+                </button>
+                <button class="btnC play-pause">
+                    <i class="fi fi-sr-play"></i>
+                </button>
+                <button class="btnC next">
+                    <i class="fi fi-sr-forward"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="music-list.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

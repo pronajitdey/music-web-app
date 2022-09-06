@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+    /* bg-color */
+    --bg01: linear-gradient(180deg, hsl(210, 11%, 15%) 0%, hsl(216, 10%, 10%) 100%);
+
+    --bg02: linear-gradient(135deg, hsl(210, 10%, 20%), hsl(220, 9%, 13%));
+
+    --bg03: linear-gradient(135deg, hsl(210, 10%, 19%), hsl(210, 9%, 13%));
+
+    --bg04: hsl(0, 0%, 2%);
+
+    --border01: hsl(210, 11%, 15%);
+    --border02: hsl(214, 12%, 12%);
+
+    /* box shadow */
+    --box-shadow01: 
+        6px 6px 10px hsl(220, 7%, 9%),
+        -6px -6px 10px hsl(210, 10%, 19%),
+        inset 2px 2px 6px hsl(225, 7%, 22%),
+        inset -3px -3px 6px hsl(220, 7%, 9%);
+
+    --box-shadow02: 
+        -6px -6px 10px hsl(220, 7%, 9%),
+        6px 6px 10px hsl(210, 10%, 19%),
+        inset 2px 2px 6px hsl(225, 7%, 22%),
+        inset -3px -3px 6px hsl(220, 7%, 9%);
+
+    --box-shadow03:
+        6px 6px 12px hsl(220, 7%, 9%),
+        -6px -6px 12 hsl(210, 10%, 19%);
+
+    --box-shadow04:
+        inset 2px 2px 3px -2px hsla(210, 2%, 66%, 0.322),
+        inset 0px -1px 1px 0px hsl(210, 3%, 30%);
+
+    --box-shadow05:
+        8px 8px 12px hsl(220, 7%, 9%),
+        -2px -2px 10px hsl(210, 10%, 19%),
+        inset 2px 2px 3px hsl(225, 7%, 22%),
+        inset -2px -2px 3px hsl(220, 7%, 9%);
+
+    --box-shadow06:
+        10px 10px 12px hsl(220, 7%, 9%),
+        -10px -10px 12px hsl(214, 9%, 15%),
+        inset 4px 4px 8px hsl(225, 7%, 22%),
+        inset -4px -4px 8px hsl(220, 7%, 9%);
+
+    --box-shadow07: 
+        10px 10px 12px hsl(220, 7%, 9%),
+        -10px -10px 12px hsl(214, 9%, 15%),
+        inset -4px -4px 8px hsl(225, 7%, 22%),
+        inset 4px 4px 8px hsl(220, 7%, 9%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* to hide blue highlight on button click */
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg01);
+}
+
+.wrapper {
+    max-width: 900px;
+    height: 100vh;
+    text-align: center;
+    padding: 2rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+header,
+.song-time,
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+header .hdbtn {
+    background: var(--bg02);
+    border: 2px solid var(--border01);
+    box-shadow: var(--box-shadow01);
+    width: 52px;
+    height: 52px;
+    line-height: 52px;
+    color: hsl(210, 3%, 54%);
+    font-size: 20px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.hdbtn:active {
+    box-shadow: var(--box-shadow02);
+}
+
+header h3 {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #86898c;
+}
+
+.player {
+    margin-top: 2rem;
+}
+
+img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 10px solid var(--border02);
+    box-shadow: var(--box-shadow01);
+}
+
+.name {
+    color: hsl(210, 2%, 66%);
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+
+.artist {
+    color: hsl(225, 2%, 49%);
+    text-transform: capitalize;
+    font-size: 0.85rem;
+    padding: 0.625em 0 1.25em;
+}
+
+.timeline {
+    margin: 2rem 0;
+}
+
+.song-time {
+    margin-bottom: 1.25em;
+}
+
+.song-time span {
+    font-size: 0.625rem;
+    color: hsl(225, 2%, 49%);
+    font-weight: 700;
+    user-select: none;
+}
+
+.progress-area {
+    width: 100%;
+    height: 7px;
+    background: var(--bg04);
+    border-radius: 50px;
+    box-shadow: var(--box-shadow04);
+    cursor: pointer;
+}
+
+.progress-area .progress-bar {
+    height: inherit;
+    width: 0%;
+    position: relative;
+    border-radius: inherit;
+    background: linear-gradient(90deg,
+        hsl(6, 84%, 41%) 0%,
+        hsl(20, 91%, 46%) 80%);
+    box-shadow: var(--box-shadow04);
+}
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    background: var(--bg02);
+    box-shadow: var(--box-shadow05);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    top: 50%;
+    right: -14px;
+    z-index: 2;
+    outline: none;
+    border: none;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+}
+
+.progress-bar::after {
+    content: "";
+    position: absolute;
+    background: hsl(20, 91%, 46%);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    right: -5px;
+    z-index: 2;
+    outline: none;
+    border: none;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.controls {
+    margin: 55px 8px 5px 8px;
+}
+
+.btnC {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--bg03);
+    border: 3px solid var(--border02);
+    box-shadow: var(--box-shadow06);
+}
+
+.btnC:active {
+    box-shadow: var(--box-shadow07);
+}
+
+.controls i {
+    font-size: 1.25rem;
+    color: hsl(120, 1%, 66%);
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls .play-pause {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid hsl(19, 87%, 43%);
+    background: linear-gradient(135deg,
+        #bd2210,
+        #e5550b);
+    box-shadow:
+        10px 10px 12px #151618,
+        -10px -10px 12px #222529,
+        inset 4px 4px 8px #e5550b,
+        inset -4px -4px 8px #bd2210;
+}
+
+.play-pause:active {
+    box-shadow:
+        10px 10px 12px #151618,
+        -10px -10px 12px #222529,
+        inset -10px -10px 8px #e5550b,
+        inset 10px 10px 8px #bd2210;
+}
+
+.play-pause i {
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+}
+
+.rotate {
+    animation: 8s rotation infinite linear;
+    transform-origin: center;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
